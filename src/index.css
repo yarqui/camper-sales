@@ -4,13 +4,24 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+@layer base {
+  :root {
+    --color-primary: 16 24 40; /* for rgb function with alpha channel in tailwind.config.js*/
+    --color-secondary: #475467;
+    --color-carmine: #e44848;
+    --color-carmine-accent: #d84343;
+    --color-sunglow: #ffc531;
+    --color-cultured-grey: #f2f4f7;
+    --color-almost-white: #f7f7f7;
+    --color-chalk: #ffffff;
 
+    color: var(--color-primary);
+  }
 }
