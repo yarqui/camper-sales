@@ -2,12 +2,12 @@ import { FC } from "react";
 import sprite from "../../assets/icons/sprite.svg";
 
 type Props = {
-  className: string;
+  className?: string;
   iconId: string; // id from sprite.svg
 };
 
-const Icon: FC<Props> = ({ className, iconId }) => {
-  const css = `fill-current ${className}`;
+const Icon: FC<Props> = ({ className = "", iconId }) => {
+  const css: string = `${className}`;
 
   return (
     <svg className={css}>

@@ -1,24 +1,31 @@
-import Button from "./components/Button/Button";
-import Icon from "./components/Icon/Icon";
+import { lazy } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+
+import PAGE_NAMES from "./router/paths";
+
+const HeaderLayout = lazy(() => import("./layouts/HeaderLayout/HeaderLayout"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const Catalog = lazy(() => import("./pages/Catalog/Catalog"));
+const Favorites = lazy(() => import("./pages/Favorites/Favorites"));
 
 const App = () => {
   return (
-    <div>
-      <h1 className="">Mavericks</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
-        consequatur!
-      </p>
-      <p className="-tracking-tinyTighter font-medium leading-5">Search</p>
-      <Icon className="fill-almostWhite" iconId="icon-calendar" />
-      <Button
-        type="button"
-        onClick={() => {}}
-        className="px-15 text-chalk hocus:bg-carmineAccent bg-carmine"
-      >
-        Search
-      </Button>
-    </div>
+    <>
+      <Routes>
+        <Route path={PAGE_NAMES.homepage} element={<HeaderLayout />}>
+          <Route index element={<HomePage />} />
+
+          <Route path={PAGE_NAMES.catalog} element={<Catalog />} />
+
+          <Route path={PAGE_NAMES.favorites} element={<Favorites />} />
+
+          <Route
+            path="*"
+            element={<Navigate to={PAGE_NAMES.homepage} replace />}
+          />
+        </Route>
+      </Routes>
+    </>
   );
 };
 
