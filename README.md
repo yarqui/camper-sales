@@ -17,14 +17,56 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+<!-- {
+  /* ============ Icon usage from sprite ============ */
+}
+{
+  /* <Icon className="fill-almostWhite" iconId="icon-calendar" /> */
+}
+
+{
+  /* ============ One of the buttons ============ */
+}
+{
+  /* <Button
+        type="button"
+        onClick={() => {}}
+        className="bg-carmineColor px-15 text-chalkColor hocus:bg-carmineAccentColor"
+      >
+        Search
+      </Button> */
+}
+
+{
+  /* ============ camper list. need to be adjusted ============ */
+}
+{
+  /* <ul>
+        {campers.map(({ _id, gallery }) => (
+          <li key={_id}>
+            {gallery.map((img, imgIndex) => (
+              <div className="size-52 overflow-hidden rounded-lg">
+                <img
+                  key={imgIndex}
+                  src={img}
+                  alt={`camper-${_id}-${imgIndex}`}
+                  className="h-full object-cover"
+                />
+              </div>
+            ))}
+          </li>
+        ))}
+      </ul> */
+} -->
