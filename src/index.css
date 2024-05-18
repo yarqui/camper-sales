@@ -22,7 +22,7 @@
     --color-almost-white: #f7f7f7;
     --color-chalk: #ffffff;
 
-    @apply text-primaryColor;
+    @apply text-base text-primaryColor;
   }
 }
 
