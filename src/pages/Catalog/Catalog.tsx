@@ -35,6 +35,7 @@ const Catalog: FC = () => {
       "li[data-id]",
     ) as HTMLLIElement;
 
+
     liElement?.classList.toggle("border-carmineColor");
 
     const dataId = liElement?.getAttribute("data-id");

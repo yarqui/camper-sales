@@ -16,9 +16,6 @@ const filterSlice = createSlice({
         state.specs = state.specs.filter((spec) => spec !== payload);
       }
     },
-    // removeSpecFilter: (state, { payload }) => {
-    //   state.specs = state.specs.filter((spec) => spec !== payload);
-    // },
   },
 });
 
