@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Icon: FC<Props> = ({ className = "", iconId }) => {
-  const css: string = `${className}`;
+  const css: string = `transition-all duration-250 ${className}`;
 
   return (
     <svg className={css}>

@@ -65,7 +65,9 @@ export type CampersState = {
 };
 
 export type FilterState = {
-  value: string;
+  locationValue: string;
+  specs: string[];
+  favorite: Camper[];
 };
 
 export type Options = Partial<

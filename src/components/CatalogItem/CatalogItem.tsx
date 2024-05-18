@@ -1,9 +1,12 @@
-import { FC } from "react";
+import { FC, HtmlHTMLAttributes, MouseEvent, useRef, useState } from "react";
 import { Camper } from "../../redux/types";
 import Icon from "../Icon/Icon";
 import { reverseLocation } from "../../helpers/helpers";
 import OptionItem, { Option } from "../OptionItem/OptionItem";
 import Button from "../Button/Button";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { toggleFavorite } from "../../redux/slices/favoriteSlice";
+import { selectFavorites } from "../../redux/selectors/selectors";
 
 type Props = {
   camper: Partial<Camper>;
@@ -19,6 +22,12 @@ type Props = {
 // };
 
 const CatalogItem: FC<Props> = ({ camper }) => {
+  const dispatch = useAppDispatch();
+  const favorites = useAppSelector(selectFavorites);
+  const isFavorite = favorites.some(
+    (favCamper) => favCamper._id === camper._id,
+  );
+
   const {
     name,
     price,
@@ -50,8 +59,15 @@ const CatalogItem: FC<Props> = ({ camper }) => {
     ([, value]) => value !== undefined,
   ) as Option[];
 
-  const toggleFavorites = () => {
+  const handleToggleFavorites = (e: MouseEvent<HTMLButtonElement>) => {
     console.log("toggle favorites");
+
+    dispatch(toggleFavorite(camper));
+  };
+
+  const handleShowMore = (e: MouseEvent<HTMLButtonElement>) => {
+    e.currentTarget.blur();
+    console.log("Show more");
   };
 
   return (
@@ -63,6 +79,7 @@ const CatalogItem: FC<Props> = ({ camper }) => {
             className="h-full basis-full object-cover"
             src={gallery[0]}
             alt={`camper ${name}`}
+            loading="lazy"
           />
         )}
       </div>
@@ -78,8 +95,11 @@ const CatalogItem: FC<Props> = ({ camper }) => {
               <p className="max-w-52 truncate">{`€${price},00`}</p>
 
               {/* favorites button */}
-              <button type="button" onClick={toggleFavorites}>
-                <Icon iconId="icon-heart" className="size-6" />
+              <button type="button" onClick={handleToggleFavorites}>
+                <Icon
+                  iconId={isFavorite ? "icon-heart-pressed" : "icon-heart"}
+                  className={`size-6 ${isFavorite && "fill-carmineColor"}`}
+                />
               </button>
             </div>
           </div>
@@ -118,9 +138,7 @@ const CatalogItem: FC<Props> = ({ camper }) => {
         </div>
         <Button
           className="w-fit bg-carmineColor px-10 py-4 text-almostWhiteColor hocus:bg-carmineAccentColor"
-          onClick={() => {
-            console.log("click on show more");
-          }}
+          onClick={handleShowMore}
         >
           Show more
         </Button>

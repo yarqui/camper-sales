@@ -14,7 +14,7 @@ const Button: FC<Props> = ({
   className = "",
   ...otherProps
 }) => {
-  const css: string = `tracking-tinyTighter rounded-full font-medium leading-6 transition-colors duration-250 py-4 ${className}`;
+  const css: string = `-tracking-tinyTighter rounded-full font-medium leading-6 transition-colors duration-250 py-4 ${className}`;
 
   return (
     <button type={type} onClick={onClick} className={css} {...otherProps}>

@@ -8,7 +8,3 @@ const Spinner = ({ className = "" }) => {
 };
 
 export default Spinner;
-
-// Spinner.propTypes = {
-//   css: PropTypes.string,
-// };

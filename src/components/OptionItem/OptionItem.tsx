@@ -35,10 +35,9 @@ const OptionItem: FC<Props> = ({ option }) => {
     default:
       break;
   }
-  console.log("keyProp:", keyProp);
 
   return (
-    <li className="flex select-none w-fit items-center gap-2 rounded-full bg-culturedGreyColor px-[18px] py-3 leading-5">
+    <li className="flex w-fit select-none items-center gap-2 rounded-full bg-culturedGreyColor px-[18px] py-3 leading-5">
       <Icon iconId={`icon-${key}`} className="size-5" />
       <div>
         <span>{valueProp} </span>
