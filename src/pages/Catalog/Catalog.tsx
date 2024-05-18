@@ -9,7 +9,10 @@ import { Notify } from "notiflix";
 import VehicleEquipmentFilter from "../../components/VehicleEquipmentFilter/VehicleEquipmentFilter";
 import VehicleTypeFilter from "../../components/VehicleTypeFilter/VehicleTypeFilter";
 import VehicleLocationFilter from "../../components/VehicleLocationFilter/VehicleLocationFilter";
-import { selectFilteredCampers } from "../../redux/selectors/selectors";
+import {
+  selectFilteredCampers,
+  selectIsLoading,
+} from "../../redux/selectors/selectors";
 import { toggleSpecFilter } from "../../redux/slices/filterSlice";
 
 // const initialOptions: Options | null = null;

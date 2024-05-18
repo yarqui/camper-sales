@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { CampersState, FilterState } from "../types";
+import { CampersState, FavoriteState, FilterState } from "../types";
 
 export const selectCampers = (state: RootState): CampersState["items"] =>
   state.campers.items;
@@ -18,8 +18,10 @@ export const selectLocationFilter = (
 export const selectSpecsFilter = (state: RootState): FilterState["specs"] =>
   state.filter.specs;
 
-export const selectFavorites = (state: RootState): FilterState["favorite"] =>
-  state.favorite;
+export const selectFavorites = (state: RootState): FavoriteState["items"] =>
+  state.favorite.items;
+// export const selectFavorites = (state: RootState): FilterState["favorite"] =>
+//   state.favorite;
 
 export const selectFilteredCampers = createSelector(
   [selectCampers, selectLocationFilter, selectSpecsFilter],

@@ -2,26 +2,30 @@ import { createSlice } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const favoriteInitialState = [];
+const favoriteInitialState = { items: [] };
 
 const favoriteSlice = createSlice({
   name: "favorite",
   initialState: favoriteInitialState,
   reducers: {
     toggleFavorite: (state, { payload }) => {
-      const hasCamper = state.some((camper) => camper._id === payload._id);
+      const hasCamper = state.items.some(
+        (camper) => camper._id === payload._id,
+      );
 
       if (hasCamper) {
-        return state.filter((camper) => camper._id !== payload._id);
+        state.items = state.items.filter(
+          (camper) => camper._id !== payload._id,
+        );
       } else {
-        state.push(payload);
+        state.items.push(payload);
       }
     },
   },
 });
 
 const persistConfig = {
-  key: "favorite",
+  key: "items",
   storage,
 };
 
