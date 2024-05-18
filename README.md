@@ -30,16 +30,6 @@ export default {
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
 <!-- {
-  /* ============ Icon usage from sprite ============ */
-}
-{
-  /* <Icon className="fill-almostWhite" iconId="icon-calendar" /> */
-}
-
-{
-  /* ============ One of the buttons ============ */
-}
-{
   /* <Button
         type="button"
         onClick={() => {}}
@@ -47,26 +37,4 @@ export default {
       >
         Search
       </Button> */
-}
-
-{
-  /* ============ camper list. need to be adjusted ============ */
-}
-{
-  /* <ul>
-        {campers.map(({ _id, gallery }) => (
-          <li key={_id}>
-            {gallery.map((img, imgIndex) => (
-              <div className="size-52 overflow-hidden rounded-lg">
-                <img
-                  key={imgIndex}
-                  src={img}
-                  alt={`camper-${_id}-${imgIndex}`}
-                  className="h-full object-cover"
-                />
-              </div>
-            ))}
-          </li>
-        ))}
-      </ul> */
 } -->

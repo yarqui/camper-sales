@@ -1,5 +1,5 @@
-import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { lazy } from "react";
 
 import PAGE_NAMES from "./router/paths";
 
