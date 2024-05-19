@@ -64,8 +64,14 @@ export type CampersState = {
   error: ReduxError | null;
 };
 
+export type FavoriteState = {
+  items: Camper[];
+};
+
 export type FilterState = {
-  value: string;
+  locationValue: string;
+  specs: string[];
+  favorite: FavoriteState;
 };
 
 export type Options = Partial<

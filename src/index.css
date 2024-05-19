@@ -24,6 +24,10 @@
 
     @apply text-base text-primaryColor;
   }
+
+  body {
+    @apply overflow-x-hidden;
+  }
 }
 
 @layer components {
@@ -38,4 +42,23 @@
   .nav-bar {
     @apply flex justify-center gap-5 py-1 text-base font-semibold;
   }
+}
+.star {
+  position: relative;
+  display: inline-block;
+}
+
+.star::before {
+  content: attr(data-icon);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+  color: gold; /* Color for the half-star */
+}
+
+.star::after {
+  content: attr(data-icon);
+  color: gray; /* Default star color */
 }

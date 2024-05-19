@@ -32,13 +32,65 @@ const OptionItem: FC<Props> = ({ option }) => {
       valueProp = "";
       break;
 
+    case "radio":
+      keyProp = "Radio";
+      valueProp = "";
+      break;
+
+    case "CD":
+      valueProp = "";
+      break;
+
+    case "TV":
+      valueProp = "";
+      break;
+
+    case "shower":
+      keyProp = "Shower";
+      valueProp = "";
+      break;
+
+    case "toilet":
+      keyProp = "Toilet";
+      valueProp = "";
+      break;
+
+    case "freezer":
+      keyProp = "Freezer";
+      valueProp = "";
+      break;
+
+    case "hob":
+      keyProp = "Hob";
+      valueProp = "";
+      break;
+
+    case "microwave":
+      keyProp = "Microwave";
+      valueProp = "";
+      break;
+
+    case "gas":
+      keyProp = "Gas";
+      valueProp = "";
+      break;
+
+    case "water":
+      keyProp = "Water";
+      valueProp = "";
+      break;
+
+    case "bathroom":
+      keyProp = "Bathroom";
+      valueProp = "";
+      break;
+
     default:
       break;
   }
-  console.log("keyProp:", keyProp);
 
   return (
-    <li className="flex select-none w-fit items-center gap-2 rounded-full bg-culturedGreyColor px-[18px] py-3 leading-5">
+    <li className="flex w-fit select-none items-center gap-2 rounded-full bg-culturedGreyColor px-[18px] py-3 leading-5">
       <Icon iconId={`icon-${key}`} className="size-5" />
       <div>
         <span>{valueProp} </span>

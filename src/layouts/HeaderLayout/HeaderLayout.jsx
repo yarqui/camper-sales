@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 import Spinner from "../../components/Spinner/Spinner";
 import PAGE_NAMES from "../../router/paths";
@@ -8,10 +8,9 @@ import Container from "../../components/Container/Container";
 
 const HeaderLayout = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const onLogoClick = () => {
-    navigate("/", { state: { from: location } }); // TODO: do we need state?
+    navigate("/");
   };
 
   return (

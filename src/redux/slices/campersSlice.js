@@ -16,7 +16,7 @@ export const campersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampersAll.fulfilled, (state, { payload }) => {
-        state.items = payload;
+        state.items = [...state.items, ...payload];
       })
       .addMatcher(isFulfilledAction, handleFulfilled)
       .addMatcher(isPendingAction, handlePending)
