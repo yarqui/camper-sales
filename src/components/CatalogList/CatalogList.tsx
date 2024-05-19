@@ -13,7 +13,7 @@ const CatalogList = ({ campers }: Props) => {
   );
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const handleShowMore = (camper: Camper): void => {
+  const handleShowMore = (camper: Partial<Camper>): void => {
     setSelectedCamper(camper);
     setIsModalOpen(true);
   };
@@ -31,7 +31,6 @@ const CatalogList = ({ campers }: Props) => {
             key={camper._id}
             camper={camper}
             handleShowMore={handleShowMore}
-            handleCloseModal={handleCloseModal}
           />
         ))}
       </ul>
