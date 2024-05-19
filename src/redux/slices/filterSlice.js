@@ -16,11 +16,12 @@ const filterSlice = createSlice({
         state.specs = state.specs.filter((spec) => spec !== payload);
       }
     },
+    resetFilter: () => {
+      return filterInitialState;
+    },
   },
 });
 
-export const {
-  setLocationFilter,
-  toggleSpecFilter,
-} = filterSlice.actions;
+export const { setLocationFilter, toggleSpecFilter, resetFilter } =
+  filterSlice.actions;
 export default filterSlice.reducer;

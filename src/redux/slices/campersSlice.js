@@ -13,6 +13,11 @@ const campersInitialState = { items: [], isLoading: false, error: null };
 export const campersSlice = createSlice({
   name: "campers",
   initialState: campersInitialState,
+  reducers: {
+    resetCampers() {
+      return campersInitialState;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampersAll.fulfilled, (state, { payload }) => {
@@ -27,6 +32,7 @@ export const campersSlice = createSlice({
   },
 });
 
+export const { resetCampers } = campersSlice.actions;
 const campersReducer = campersSlice.reducer;
 
 export default campersReducer;

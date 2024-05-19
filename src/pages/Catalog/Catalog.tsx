@@ -8,9 +8,9 @@ import VehicleEquipmentFilter from "../../components/VehicleEquipmentFilter/Vehi
 import VehicleTypeFilter from "../../components/VehicleTypeFilter/VehicleTypeFilter";
 import VehicleLocationFilter from "../../components/VehicleLocationFilter/VehicleLocationFilter";
 import { selectFilteredCampers } from "../../redux/selectors/selectors";
-import { toggleSpecFilter } from "../../redux/slices/filterSlice";
+import { resetFilter, toggleSpecFilter } from "../../redux/slices/filterSlice";
 import CatalogList from "../../components/CatalogList/CatalogList";
-
+import { resetCampers } from "../../redux/slices/campersSlice";
 
 const Catalog: FC = () => {
   const [page, setPage] = useState<number>(1);
@@ -51,6 +51,13 @@ const Catalog: FC = () => {
       controller.abort();
     };
   }, [dispatch, page]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetFilter());
+      dispatch(resetCampers());
+    };
+  }, [dispatch]);
 
   return (
     <div className="mt-16 flex gap-[64px] pb-25">
