@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Icon from "../Icon/Icon";
-import Rating from "../Rating/Rating"; // Assuming you have a Rating component
+import Rating from "../Rating/Rating";
 import Location from "../Location/Location";
 import TabsLabel from "../TabsLabel/TabsLabel";
 import Tabs from "../Tabs/Tabs";

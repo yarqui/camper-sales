@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../Icon/Icon"; // Adjust the import path as needed
+import Icon from "../Icon/Icon";
 
 type StarsProps = {
   rating: number;

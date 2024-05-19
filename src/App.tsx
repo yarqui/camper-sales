@@ -19,7 +19,13 @@ Notiflix.Notify.init({
 
 const App: FC = () => {
   return (
-    <Suspense fallback={<Spinner className="h-10 w-10" />}>
+    <Suspense
+      fallback={
+        <div className="flex items-center justify-center pt-10">
+          <Spinner className="size-10" />
+        </div>
+      }
+    >
       <Routes>
         <Route path={PAGE_NAMES.homepage} element={<HeaderLayout />}>
           <Route index element={<HomePage />} />

@@ -1,7 +1,6 @@
 import { FC, MouseEvent } from "react";
 import { Camper } from "../../redux/types";
 import Icon from "../Icon/Icon";
-// import { reverseLocation } from "../../helpers/helpers";
 import OptionItem, { Option } from "../OptionItem/OptionItem";
 import Button from "../Button/Button";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
@@ -15,14 +14,7 @@ type Props = {
   handleShowMore: (camper: Partial<Camper>) => void;
 };
 
-// type OptionList = {
-//   adults: number;
-//   engine: string;
-//   transmission: string;
-//   airConditioner: number;
-//   kitchen: number;
-//   beds: number;
-// };
+
 
 const CatalogItem: FC<Props> = ({ camper, handleShowMore }) => {
   const dispatch = useAppDispatch();
@@ -66,7 +58,6 @@ const CatalogItem: FC<Props> = ({ camper, handleShowMore }) => {
 
   const handleShowMoreClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.currentTarget.blur();
-    console.log("Show more");
     handleShowMore(camper);
   };
 

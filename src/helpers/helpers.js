@@ -1,4 +1,3 @@
-// TODO: check if needed
 const debounce = (func, delay) => {
   let timerId;
 

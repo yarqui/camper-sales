@@ -22,6 +22,5 @@ const filterSlice = createSlice({
 export const {
   setLocationFilter,
   toggleSpecFilter,
-  // removeSpecFilter
 } = filterSlice.actions;
 export default filterSlice.reducer;
