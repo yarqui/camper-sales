@@ -1,17 +1,18 @@
 import { useDispatch } from "react-redux";
 import Icon from "../Icon/Icon";
-import { debounce } from "../../helpers/helpers";
+// import { debounce } from "../../helpers/helpers";
 import { setLocationFilter } from "../../redux/slices/filterSlice";
 
 const VehicleLocationFilter = () => {
   const dispatch = useDispatch();
 
-  const debouncedSetLocationFilter = debounce((val) => {
-    dispatch(setLocationFilter(val));
-  }, 500);
+  // const debouncedSetLocationFilter = debounce((val) => {
+  //   dispatch(setLocationFilter(val));
+  // }, 500);
 
   const handleChange = (e) => {
-    debouncedSetLocationFilter(e.target.value);
+    // debouncedSetLocationFilter(e.target.value);
+    dispatch(setLocationFilter(e.target.value));
   };
 
   return (
