@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import store, { persistor } from "./redux/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import "./index.css";
-import store, { persistor } from "./redux/store";
 import App from "./App";
 import Spinner from "./components/Spinner/Spinner";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLDivElement).render(
-  // <React.StrictMode>
+  // <React.StrictMode> // TODO: uncomment strict mode
   <Provider store={store}>
     <PersistGate
       loading={

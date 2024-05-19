@@ -1,19 +1,15 @@
 import { FC, MouseEvent, useEffect, useState } from "react";
 import { fetchCampersAll } from "../../redux/operations/campersOperations";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { Camper } from "../../redux/types";
-import CatalogItem from "../../components/CatalogItem/CatalogItem";
 import Button from "../../components/Button/Button";
 import { Notify } from "notiflix";
 
 import VehicleEquipmentFilter from "../../components/VehicleEquipmentFilter/VehicleEquipmentFilter";
 import VehicleTypeFilter from "../../components/VehicleTypeFilter/VehicleTypeFilter";
 import VehicleLocationFilter from "../../components/VehicleLocationFilter/VehicleLocationFilter";
-import {
-  selectFilteredCampers,
-  selectIsLoading,
-} from "../../redux/selectors/selectors";
+import { selectFilteredCampers } from "../../redux/selectors/selectors";
 import { toggleSpecFilter } from "../../redux/slices/filterSlice";
+import CatalogList from "../../components/CatalogList/CatalogList";
 
 // const initialOptions: Options | null = null;
 
@@ -34,7 +30,6 @@ const Catalog: FC = () => {
     const liElement = (e.target as HTMLDivElement).closest(
       "li[data-id]",
     ) as HTMLLIElement;
-
 
     liElement?.classList.toggle("border-carmineColor");
 
@@ -74,14 +69,10 @@ const Catalog: FC = () => {
       </aside>
 
       <div className="flex flex-col items-center">
-        <ul className="flex flex-col gap-8">
-          {filteredCampers.map((camper: Partial<Camper>) => (
-            <CatalogItem key={camper._id} camper={camper} />
-          ))}
-        </ul>
+        <CatalogList campers={filteredCampers} />
 
         {!filteredCampers.length && (
-          <p>There are no results with this set of filters</p>
+          <p>There are no results with this combination of filters</p>
         )}
 
         {!endOfResults && (

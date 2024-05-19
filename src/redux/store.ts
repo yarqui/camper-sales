@@ -11,7 +11,6 @@ import {
 
 import campersReducer from "./slices/campersSlice";
 import filterSlice from "./slices/filterSlice";
-import favoriteSlice from "./slices/favoriteSlice";
 import favoriteReducer from "./slices/favoriteSlice";
 
 const store = configureStore({

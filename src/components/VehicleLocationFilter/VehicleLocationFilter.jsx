@@ -20,17 +20,17 @@ const VehicleLocationFilter = () => {
         Location
       </label>
 
-      <div className="relative flex flex-col justify-center">
-        <Icon
-          iconId="icon-pin"
-          className=" absolute left-[18px] top-[18px] h-5 w-[18px]"
-        />
+      <div className="relative flex flex-col-reverse justify-center">
         <input
           id="location"
           type="text"
-          className="w-full rounded-[10px] bg-almostWhiteColor p-[18px] ps-11 leading-5"
-          placeholder="Type location to filter"
+          className="peer w-full rounded-[10px] bg-almostWhiteColor p-[18px] ps-11 leading-5"
+          placeholder="City"
           onChange={handleChange}
+        />
+        <Icon
+          iconId="icon-pin"
+          className="absolute left-[18px] top-[18px] h-5 w-[18px] peer-placeholder-shown:fill-gray-400"
         />
       </div>
     </div>

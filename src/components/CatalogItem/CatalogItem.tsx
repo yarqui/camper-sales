@@ -1,15 +1,18 @@
-import { FC, HtmlHTMLAttributes, MouseEvent, useRef, useState } from "react";
+import { FC, MouseEvent } from "react";
 import { Camper } from "../../redux/types";
 import Icon from "../Icon/Icon";
-import { reverseLocation } from "../../helpers/helpers";
+// import { reverseLocation } from "../../helpers/helpers";
 import OptionItem, { Option } from "../OptionItem/OptionItem";
 import Button from "../Button/Button";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { toggleFavorite } from "../../redux/slices/favoriteSlice";
 import { selectFavorites } from "../../redux/selectors/selectors";
+import Rating from "../Rating/Rating";
+import Location from "../Location/Location";
 
 type Props = {
   camper: Partial<Camper>;
+  handleShowMore: (camper: Partial<Camper>) => void;
 };
 
 // type OptionList = {
@@ -21,7 +24,7 @@ type Props = {
 //   beds: number;
 // };
 
-const CatalogItem: FC<Props> = ({ camper }) => {
+const CatalogItem: FC<Props> = ({ camper, handleShowMore }) => {
   const dispatch = useAppDispatch();
   const favorites = useAppSelector(selectFavorites);
   const isFavorite = favorites.some(
@@ -30,8 +33,8 @@ const CatalogItem: FC<Props> = ({ camper }) => {
 
   const {
     name,
-    price,
-    rating,
+    price = 0,
+    rating = 0,
     location,
     adults,
     engine,
@@ -43,8 +46,6 @@ const CatalogItem: FC<Props> = ({ camper }) => {
   } = camper;
 
   const { airConditioner, kitchen, beds } = details || {};
-
-  const reversedLocation = reverseLocation(location);
 
   const optionEntries = Object.entries({
     adults,
@@ -59,15 +60,14 @@ const CatalogItem: FC<Props> = ({ camper }) => {
     ([, value]) => value !== undefined,
   ) as Option[];
 
-  const handleToggleFavorites = (e: MouseEvent<HTMLButtonElement>) => {
-    console.log("toggle favorites");
-
+  const handleToggleFavorites = () => {
     dispatch(toggleFavorite(camper));
   };
 
-  const handleShowMore = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleShowMoreClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.currentTarget.blur();
     console.log("Show more");
+    handleShowMore(camper);
   };
 
   return (
@@ -89,10 +89,10 @@ const CatalogItem: FC<Props> = ({ camper }) => {
         <div className="flex flex-col gap-2">
           {/* name & price */}
           <div className="flex justify-between text-2xl font-semibold leading-[30px]">
-            <p className="truncate">{name}</p>
+            <h2 className="truncate">{name}</h2>
 
             <div className="flex items-center gap-3">
-              <p className="max-w-52 truncate">{`€${price},00`}</p>
+              <p className="max-w-52 truncate">€{price}.00</p>
 
               {/* favorites button */}
               <button type="button" onClick={handleToggleFavorites}>
@@ -105,21 +105,8 @@ const CatalogItem: FC<Props> = ({ camper }) => {
           </div>
 
           <div className="flex gap-4">
-            {/* reviews */}
-            {/* TODO: Make reviews a link to the Reviews tab of the Modal??? */}
-            <div className="flex items-center gap-1">
-              <Icon iconId="icon-star" className="size-4 fill-sunglowColor" />
-              <span className="underline underline-offset-4">
-                {rating && rating} ({reviews?.length}
-                {reviews && reviews?.length < 2 ? " Review" : " Reviews"})
-              </span>
-            </div>
-
-            {/* location */}
-            <div className="flex items-center gap-1">
-              <Icon iconId="icon-pin" className="size-4" />
-              <span>{reversedLocation}</span>
-            </div>
+            <Rating rating={rating} reviews={reviews} />
+            <Location location={location} />
           </div>
         </div>
 
@@ -138,7 +125,7 @@ const CatalogItem: FC<Props> = ({ camper }) => {
         </div>
         <Button
           className="w-fit bg-carmineColor px-10 py-4 text-almostWhiteColor hocus:bg-carmineAccentColor"
-          onClick={handleShowMore}
+          onClick={handleShowMoreClick}
         >
           Show more
         </Button>

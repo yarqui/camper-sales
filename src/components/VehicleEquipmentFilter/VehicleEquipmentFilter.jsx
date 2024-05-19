@@ -27,7 +27,7 @@ const VehicleEquipmentFilter = () => {
         />
         <EquipmentItem
           dataId="TV"
-          iconId="icon-tv"
+          iconId="icon-TV"
           iconStyle="size-8"
           text="TV"
         />

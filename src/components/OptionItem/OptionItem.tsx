@@ -32,6 +32,59 @@ const OptionItem: FC<Props> = ({ option }) => {
       valueProp = "";
       break;
 
+    case "radio":
+      keyProp = "Radio";
+      valueProp = "";
+      break;
+
+    case "CD":
+      valueProp = "";
+      break;
+
+    case "TV":
+      valueProp = "";
+      break;
+
+    case "shower":
+      keyProp = "Shower";
+      valueProp = "";
+      break;
+
+    case "toilet":
+      keyProp = "Toilet";
+      valueProp = "";
+      break;
+
+    case "freezer":
+      keyProp = "Freezer";
+      valueProp = "";
+      break;
+
+    case "hob":
+      keyProp = "Hob";
+      valueProp = "";
+      break;
+
+    case "microwave":
+      keyProp = "Microwave";
+      valueProp = "";
+      break;
+
+    case "gas":
+      keyProp = "Gas";
+      valueProp = "";
+      break;
+
+    case "water":
+      keyProp = "Water";
+      valueProp = "";
+      break;
+
+    case "bathroom":
+      keyProp = "Bathroom";
+      valueProp = "";
+      break;
+
     default:
       break;
   }
