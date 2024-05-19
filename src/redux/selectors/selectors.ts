@@ -20,8 +20,6 @@ export const selectSpecsFilter = (state: RootState): FilterState["specs"] =>
 
 export const selectFavorites = (state: RootState): FavoriteState["items"] =>
   state.favorite.items;
-// export const selectFavorites = (state: RootState): FilterState["favorite"] =>
-//   state.favorite;
 
 export const selectFilteredCampers = createSelector(
   [selectCampers, selectLocationFilter, selectSpecsFilter],
@@ -65,8 +63,6 @@ export const selectFilteredCampers = createSelector(
             return false;
         }
       });
-
-      // return matchesLocation && matchesSpecs;
     });
   },
 );

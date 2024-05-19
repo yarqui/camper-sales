@@ -10,20 +10,20 @@ import App from "./App";
 import Spinner from "./components/Spinner/Spinner";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLDivElement).render(
-  // <React.StrictMode> // TODO: uncomment strict mode
-  <Provider store={store}>
-    <PersistGate
-      loading={
-        <div className="flex items-center justify-center">
-          <Spinner className="h-10 w-10" />
-        </div>
-      }
-      persistor={persistor}
-    >
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </PersistGate>
-  </Provider>,
-  // </React.StrictMode>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate
+        loading={
+          <div className="flex items-center justify-center">
+            <Spinner className="size-10" />
+          </div>
+        }
+        persistor={persistor}
+      >
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>,
 );

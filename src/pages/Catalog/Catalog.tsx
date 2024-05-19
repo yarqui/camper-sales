@@ -11,7 +11,6 @@ import { selectFilteredCampers } from "../../redux/selectors/selectors";
 import { toggleSpecFilter } from "../../redux/slices/filterSlice";
 import CatalogList from "../../components/CatalogList/CatalogList";
 
-// const initialOptions: Options | null = null;
 
 const Catalog: FC = () => {
   const [page, setPage] = useState<number>(1);

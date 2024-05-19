@@ -43,7 +43,6 @@ const Form = () => {
           required
         />
 
-        {/* TODO: replace with styled date picker */}
         <input
           type="date"
           name="bookingDate"

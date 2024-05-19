@@ -1,10 +1,9 @@
-import { LuLoader } from "react-icons/lu";
+import { GiCartwheel } from "react-icons/gi";
 
-// TODO: change spinner to the car wheel
 const Spinner = ({ className = "" }) => {
   const classes = `animate-spin ${className}`;
 
-  return <LuLoader className={classes} />;
+  return <GiCartwheel className={classes} />;
 };
 
 export default Spinner;
