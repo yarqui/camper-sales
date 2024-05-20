@@ -15,7 +15,7 @@ const HeaderLayout = () => {
 
   return (
     <div className=" ml-auto mr-auto ">
-      <header className="w-screen bg-yellow-50 px-16 py-2 shadow-sm shadow-slate-300">
+      <header className="w-screen bg-almostWhiteColor px-16 py-2 shadow-sm shadow-slate-300">
         <div className="flex items-center">
           {/* Logo */}
           <div
