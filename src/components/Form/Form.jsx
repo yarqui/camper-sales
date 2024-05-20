@@ -1,7 +1,15 @@
 import { Notify } from "notiflix";
 import Button from "../Button/Button";
+import { useAppSelector } from "../../hooks/hooks";
+import { selectError, selectIsLoading } from "../../redux/selectors/selectors";
 
 const Form = () => {
+  const error = useAppSelector(selectError);
+  const isLoading = useAppSelector(selectIsLoading);
+
+  const showLoading = isLoading && !error;
+  const showError = error && !isLoading;
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -59,10 +67,16 @@ const Form = () => {
 
       <Button
         type="submit"
-        className="w-fit rounded-full bg-carmineColor px-15 py-4 text-white hover:bg-carmineAccentColor"
+        className={`w-fit rounded-full bg-carmineColor px-15 py-4 text-white hover:bg-carmineAccentColor ${showLoading && "pointer-events-none animate-pulse bg-almostWhiteColor text-gray-400"}`}
       >
-        Send
+        {showLoading ? "Sending..." : "Send"}
       </Button>
+      {showError && (
+        <div className="rounded-md bg-red-100 p-2">
+          <p className="text-red-600">Something went wrong.</p>
+          <p className="text-xs text-red-900">{error.payload}</p>
+        </div>
+      )}
     </form>
   );
 };

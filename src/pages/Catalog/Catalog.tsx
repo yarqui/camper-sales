@@ -7,7 +7,11 @@ import { Notify } from "notiflix";
 import VehicleEquipmentFilter from "../../components/VehicleEquipmentFilter/VehicleEquipmentFilter";
 import VehicleTypeFilter from "../../components/VehicleTypeFilter/VehicleTypeFilter";
 import VehicleLocationFilter from "../../components/VehicleLocationFilter/VehicleLocationFilter";
-import { selectFilteredCampers } from "../../redux/selectors/selectors";
+import {
+  selectError,
+  selectFilteredCampers,
+  selectIsLoading,
+} from "../../redux/selectors/selectors";
 import { resetFilter, toggleSpecFilter } from "../../redux/slices/filterSlice";
 import CatalogList from "../../components/CatalogList/CatalogList";
 import { resetCampers } from "../../redux/slices/campersSlice";
@@ -18,7 +22,12 @@ const Catalog: FC = () => {
 
   const dispatch = useAppDispatch();
 
+  const error = useAppSelector(selectError);
+  const isLoading = useAppSelector(selectIsLoading);
   const filteredCampers = useAppSelector(selectFilteredCampers);
+
+  const showLoading = isLoading && !error;
+  const showError = error && !isLoading;
 
   const handleLoadMore = (e: MouseEvent<HTMLButtonElement>): void => {
     e.currentTarget.blur();
@@ -75,19 +84,25 @@ const Catalog: FC = () => {
       </aside>
 
       <div className="flex flex-col items-center">
+        {showError && (
+          <div className="rounded-md bg-red-100 p-2">
+            <p className="text-red-600">Something went wrong.</p>
+            <p className="text-xs text-red-900">{error.payload}</p>
+          </div>
+        )}
         <CatalogList campers={filteredCampers} />
 
-        {!filteredCampers.length && (
+        {!filteredCampers.length && !error && !isLoading && (
           <p>There are no results with this combination of filters</p>
         )}
 
-        {!endOfResults && (
+        {!endOfResults && !error && (
           <Button
             type="button"
-            className="mt-[50px] border border-primaryColor border-opacity-20 px-8 focus:outline-none hocus:border-carmineColor"
+            className={`mt-[50px] border border-primaryColor border-opacity-20 px-8 focus:outline-none hocus:border-carmineColor ${showLoading && "pointer-events-none animate-pulse bg-almostWhiteColor text-gray-400"}`}
             onClick={handleLoadMore}
           >
-            Load more
+            {showLoading ? "Loading..." : "Load more"}
           </Button>
         )}
       </div>

@@ -14,8 +14,6 @@ type Props = {
   handleShowMore: (camper: Partial<Camper>) => void;
 };
 
-
-
 const CatalogItem: FC<Props> = ({ camper, handleShowMore }) => {
   const dispatch = useAppDispatch();
   const favorites = useAppSelector(selectFavorites);
