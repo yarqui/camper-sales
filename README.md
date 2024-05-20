@@ -17,10 +17,10 @@ Visit the live demo hosted on Vercel: [Camper Sales](https://camper-sales.vercel
 
 ## To run the project locally:
 
-#### 1. Clone the repo:
+#### Clone the repo:
 
 ```
-git clone https://github.com/your-username/camper-sales.git
+git clone https://github.com/yarqui/camper-sales.git
 ```
 
 ```
