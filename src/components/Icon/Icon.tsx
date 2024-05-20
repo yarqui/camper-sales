@@ -16,7 +16,4 @@ const Icon: FC<Props> = ({ className = "", iconId }) => {
   );
 };
 
-// Usage:
-// <Icon className="size-5 fill-violet-600" iconId="icon-calendar" />
-
 export default Icon;

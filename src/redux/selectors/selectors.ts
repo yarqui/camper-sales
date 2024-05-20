@@ -28,7 +28,6 @@ export const selectFilteredCampers = createSelector(
       const matchesLocation = camper.location
         .toLowerCase()
         .includes(locationValue.toLowerCase());
-      console.log("matchesLocation:", matchesLocation);
 
       if (!matchesLocation) {
         return false;
