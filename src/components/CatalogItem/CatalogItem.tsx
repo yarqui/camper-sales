@@ -60,7 +60,7 @@ const CatalogItem: FC<Props> = ({ camper, handleShowMore }) => {
   };
 
   return (
-    <div className="flex h-[358px] w-[888px] max-w-[888px] gap-6 rounded-[20px] border border-primaryColor border-opacity-20 p-6">
+    <li className="flex h-[358px] w-[888px] max-w-[888px] gap-6 rounded-[20px] border border-primaryColor border-opacity-20 p-6">
       {/* image wrapper */}
       <div className="flex h-[310px] w-[290px] shrink-0 overflow-hidden rounded-[10px]">
         {gallery && (
@@ -119,7 +119,7 @@ const CatalogItem: FC<Props> = ({ camper, handleShowMore }) => {
           Show more
         </Button>
       </div>
-    </div>
+    </li>
   );
 };
 
